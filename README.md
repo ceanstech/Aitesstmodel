@@ -1,3 +1,6 @@
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -34,3 +37,57 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+=======
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+# Hmong Dictionary Importer
+
+A small command-line tool for preparing a Hmong dictionary before saving it to a database.
+
+The importer reads a CSV file, groups entries by the first alphabetical letter (`A`, `B`, `C`, ...), sorts words inside each group, and stores the result in SQLite.
+
+## CSV format
+
+```csv
+word,meaning,pronunciation,example
+ab,older sibling,,, 
+aj,what,,
+ca,branch,,
+```
+
+Only `word` and `meaning` are required. `pronunciation` and `example` are optional.
+
+## Usage
+
+```bash
+python3 hmong_dictionary_importer.py words.csv hmong_dictionary.db
+```
+
+Print grouped preview without writing a database:
+
+```bash
+python3 hmong_dictionary_importer.py words.csv --dry-run
+```
+
+## Database schema
+
+The tool creates an `entries` table with these columns:
+
+- `id`
+- `letter`
+- `word`
+- `meaning`
+- `pronunciation`
+- `example`
+- `sort_key`
+
+The `letter` column stores the alphabet group so the app can show dictionary sections such as `A`, `B`, and `C`.
+<<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
